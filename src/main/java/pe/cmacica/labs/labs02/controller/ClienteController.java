@@ -1,5 +1,7 @@
 package pe.cmacica.labs.labs02.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
@@ -8,11 +10,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import pe.cmacica.labs.labs02.config.MailProperties;
 import pe.cmacica.labs.labs02.service.ClienteService;
 
 @Controller
 @RequestMapping("/cliente")
 public class ClienteController {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ClienteController.class);
+
+    @Autowired
+    private MailProperties mailProperties;
 
     @Autowired
     private ClienteService clienteService;
@@ -23,6 +31,14 @@ public class ClienteController {
     //http://localhost:8080/cliente/80990
     @GetMapping("/{id}")
     public HttpEntity<String> getNombres(@PathVariable("id") int id) {
+
+        LOGGER.debug("{}",mailProperties.getPassword());
+        LOGGER.warn("{}",mailProperties.getServer());
+        LOGGER.info("{}",mailProperties.getUser());
+
+        //System.out.println(mailProperties.getServer());
+        //System.out.println(mailProperties.getUser());
+        //System.out.println(mailProperties.getPassword());
 
         return ResponseEntity.ok(clienteService.getNombres(id));
 

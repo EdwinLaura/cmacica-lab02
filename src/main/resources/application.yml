@@ -1,0 +1,21 @@
+server:
+  port: 9060
+
+
+logging.level:
+  root: INFO
+  pe:
+    cmacica:
+      labs:
+        labs02: DEBUG
+
+labs02:
+  igv: 18
+  nombre: Juan Pevez
+  url: http://www.google.com
+  cuenta: 112456378-899458715
+  mail:
+    server: mail.com
+    port: 3033
+    user: admin
+    password: password

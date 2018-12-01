@@ -2,10 +2,17 @@ package pe.cmacica.labs.labs02.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class ClienteRepositoryImpl implements ClienteRepository {
+
+    @Value("${labs02.nombre}")
+    private String nombre;
+
+    @Value("${labs02.cuenta}")
+    private String cuenta;
 
     @Autowired
     //@Qualifier("clienteProxyV2")
@@ -13,12 +20,12 @@ public class ClienteRepositoryImpl implements ClienteRepository {
 
     @Override
     public String getNombres(int id) {
-        return "Nuevo Cliente";
+        return nombre;
     }
 
     @Override
     public String getCuentas(int id) {
-        return "Nueva Cta: 152-7896663-102";
+        return cuenta;
     }
 
     @Override

@@ -22,6 +22,7 @@ public class CuentaController {
     @GetMapping("/")
     public HttpEntity<String> getCuentas(){
         return ResponseEntity.ok(cuentaService.getAccount(222));
+        //return ResponseEntity.ok(clienteService.getCuenta(222));
     }
 
 }
