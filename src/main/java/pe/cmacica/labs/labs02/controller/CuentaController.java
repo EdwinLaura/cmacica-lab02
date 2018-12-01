@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pe.cmacica.labs.labs02.service.ClienteService;
+import pe.cmacica.labs.labs02.service.CuentaService;
 
 @Controller
 @RequestMapping("/cta")
@@ -15,9 +16,12 @@ public class CuentaController {
     @Autowired
     private ClienteService clienteService;
 
+    @Autowired
+    private CuentaService cuentaService;
+
     @GetMapping("/")
     public HttpEntity<String> getCuentas(){
-        return ResponseEntity.ok(clienteService.getCuenta(0));
+        return ResponseEntity.ok(cuentaService.getAccount(222));
     }
 
 }
